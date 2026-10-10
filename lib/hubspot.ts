@@ -105,14 +105,17 @@ async function upsertContact(call: CallLead): Promise<string | undefined> {
   if (call.phone) props.phone = call.phone;
   if (call.email) props.email = call.email;
 
-  const existing = call.email
-    ? await findOne("contacts", [{ propertyName: "email", operator: "EQ", value: call.email }])
-    : call.phone
-    ? await findOne("contacts", [{ propertyName: "phone", operator: "EQ", value: call.phone }])
-    : await findOne("contacts", [
+  // Match the most reliable identifier first, falling through so a contact created
+  // before we knew their email isn't duplicated when the email turns up.
+  const existing =
+    (call.email && (await findOne("contacts", [{ propertyName: "email", operator: "EQ", value: call.email }]))) ||
+    (call.phone && (await findOne("contacts", [{ propertyName: "phone", operator: "EQ", value: call.phone }]))) ||
+    (firstname &&
+      (await findOne("contacts", [
         { propertyName: "firstname", operator: "EQ", value: firstname },
         ...(lastname ? [{ propertyName: "lastname", operator: "EQ" as const, value: lastname }] : []),
-      ]);
+      ]))) ||
+    undefined;
   if (existing) {
     await hs(`/crm/v3/objects/contacts/${existing}`, { method: "PATCH", body: JSON.stringify({ properties: props }) });
     return existing;
