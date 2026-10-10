@@ -925,12 +925,24 @@ function OutputsTracker({
   outputs,
   hubspotBusy,
   onPushHubSpot,
+  canBook,
+  bookingBusy,
+  onBook,
 }: {
   outputs: AutomationOutput[];
   hubspotBusy: boolean;
   onPushHubSpot: () => void;
+  canBook: boolean;
+  bookingBusy: boolean;
+  onBook: () => void;
 }) {
-  const shown = outputs.map((o) => (o.key === "hubspot" && hubspotBusy ? { ...o, status: "syncing" as OutputStatus, detail: "Pushing contact + deal…" } : o));
+  const shown = outputs.map((o) =>
+    o.key === "hubspot" && hubspotBusy
+      ? { ...o, status: "syncing" as OutputStatus, detail: "Pushing contact + deal…" }
+      : o.key === "calendar" && bookingBusy
+        ? { ...o, status: "syncing" as OutputStatus, detail: "Booking the 15-min discovery call in Cal.com…" }
+        : o,
+  );
   const delivered = shown.filter((o) => o.status === "delivered").length;
   const applicable = shown.filter((o) => o.status !== "skipped").length;
 
@@ -971,6 +983,7 @@ function OutputsTracker({
           const Icon = cfg.icon;
           const muted = o.status === "skipped" || o.status === "not-connected";
           const canPush = o.key === "hubspot" && (o.status === "pending" || o.status === "failed" || o.status === "delivered");
+          const showBook = o.key === "calendar" && canBook && o.status !== "delivered" && o.status !== "syncing";
           return (
             <li
               key={o.key}
@@ -1013,7 +1026,7 @@ function OutputsTracker({
                       ))}
                     </dl>
                   )}
-                  {(o.at || canPush || o.link) && (
+                  {(o.at || canPush || o.link || showBook) && (
                     <div className="mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-2">
                       {o.at && <span className="text-[11px] text-[#A59A8C]">{o.at}</span>}
                       {o.link && (
@@ -1038,6 +1051,15 @@ function OutputsTracker({
                         >
                           <Upload className="h-3 w-3" />
                           {o.status === "delivered" ? "Re-sync" : o.status === "failed" ? "Retry push" : "Push to HubSpot"}
+                        </button>
+                      )}
+                      {showBook && (
+                        <button
+                          onClick={onBook}
+                          className="inline-flex items-center gap-1.5 rounded-full bg-[#2A241E] px-3 py-1 text-[12px] font-medium text-[#F6F1E9] transition hover:bg-[#3A3129]"
+                        >
+                          <CalendarCheck className="h-3 w-3" />
+                          Book on Cal.com
                         </button>
                       )}
                     </div>
@@ -1183,9 +1205,10 @@ export default function CallConsolePage() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [rate, setRate] = useState(1);
   const [mobileDetail, setMobileDetail] = useState(false);
-  const [busy, setBusy] = useState<{ hubspot: Set<string>; assign: Set<string>; bulk: boolean }>({
+  const [busy, setBusy] = useState<{ hubspot: Set<string>; assign: Set<string>; booking: Set<string>; bulk: boolean }>({
     hubspot: new Set(),
     assign: new Set(),
+    booking: new Set(),
     bulk: false,
   });
   const [toast, setToast] = useState<{ id: number; message: string; tone: "ok" | "error" } | null>(null);
@@ -1203,6 +1226,31 @@ export default function CallConsolePage() {
       })
       .catch((e: Error) => setLoadError(e.message));
   }, []);
+
+  // Keep the queue live: new calls from Vaani appear without a reload. Selection and
+  // playback are untouched because only the call data is replaced.
+  useEffect(() => {
+    const refresh = () => {
+      if (document.visibilityState !== "visible") return;
+      api<CallsResponse>("/api/calls")
+        .then((data) => {
+          setCalls((prev) => {
+            const known = new Set(prev.map((c) => c.id));
+            const fresh = data.calls.filter((c) => !known.has(c.id));
+            if (fresh.length) notify(`New call: ${fresh[0].callerName ?? "Unnamed caller"}`);
+            return data.calls;
+          });
+          setIntegrations(data.integrations);
+        })
+        .catch(() => undefined);
+    };
+    const id = window.setInterval(refresh, 15_000);
+    document.addEventListener("visibilitychange", refresh);
+    return () => {
+      window.clearInterval(id);
+      document.removeEventListener("visibilitychange", refresh);
+    };
+  }, [notify]);
 
   const selected = calls.find((c) => c.id === selectedId) ?? null;
   const duration = selected?.durationSec ?? 0;
@@ -1292,7 +1340,7 @@ export default function CallConsolePage() {
     setCalls((cs) => cs.map((c) => byId.get(c.id) ?? c));
   }
 
-  function setBusyFlag(kind: "hubspot" | "assign", id: string, on: boolean) {
+  function setBusyFlag(kind: "hubspot" | "assign" | "booking", id: string, on: boolean) {
     setBusy((b) => {
       const next = new Set(b[kind]);
       if (on) next.add(id);
@@ -1325,6 +1373,19 @@ export default function CallConsolePage() {
       notify((e as Error).message, "error");
     } finally {
       setBusyFlag("hubspot", callId, false);
+    }
+  }
+
+  async function bookCall(callId: string) {
+    setBusyFlag("booking", callId, true);
+    try {
+      const res = await api<{ call: CallView; booked: boolean; error?: string }>("/api/calcom/book", { callId });
+      mergeCalls([res.call]);
+      notify(res.booked ? "Discovery call booked — Cal.com is emailing the invite" : res.error ?? "Booking failed", res.booked ? "ok" : "error");
+    } catch (e) {
+      notify((e as Error).message, "error");
+    } finally {
+      setBusyFlag("booking", callId, false);
     }
   }
 
@@ -1481,6 +1542,9 @@ export default function CallConsolePage() {
                     outputs={selected.outputs}
                     hubspotBusy={busy.hubspot.has(selected.id) || (busy.bulk && selected.outputs.some((o) => o.key === "hubspot" && o.status === "pending"))}
                     onPushHubSpot={() => pushHubSpot(selected.id)}
+                    canBook={selected.qualification === "Qualified" && Boolean(selected.email)}
+                    bookingBusy={busy.booking.has(selected.id)}
+                    onBook={() => bookCall(selected.id)}
                   />
                 </div>
               </div>
