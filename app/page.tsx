@@ -1437,6 +1437,12 @@ export default function CallConsolePage() {
                       {selected.handledBy === "Vaani" ? "No number — browser test call" : "Number redacted in source"}
                     </span>
                   )}
+                  {selected.email && (
+                    <span className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#E3DACD] bg-white px-4 py-2 text-[12.5px] text-[#5E5347] select-all sm:w-[248px]">
+                      <Mail className="h-3.5 w-3.5 shrink-0 text-[#9C6B43]" />
+                      <span className="truncate">{selected.email}</span>
+                    </span>
+                  )}
                 </div>
               </div>
 

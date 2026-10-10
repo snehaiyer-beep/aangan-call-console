@@ -71,6 +71,10 @@ export interface CallLead {
   callerName: string | null;
   /** null when withheld / redacted. */
   phone: string | null;
+  /** Confirmed on the call; used for the Cal.com invite and the HubSpot contact. */
+  email?: string | null;
+  /** Discovery-call booking made by the agent through Cal.com during the call. */
+  booking?: { status: "booked" | "not booked" | "not offered"; at?: string };
   receivedAt: string;
   durationSec: number;
   handledBy: Handler;

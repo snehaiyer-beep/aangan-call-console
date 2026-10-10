@@ -1,8 +1,10 @@
 # Aangan Studio — Voice AI Call Console
 
-A front-desk and designer console for **Aangan Studio**, an interior design studio in Pune. The studio gets about 200 inbound calls a month, and a third of them arrive outside 10am–7pm. **Vaani**, a voice AI agent, now answers every call 24/7. It qualifies the caller against the founder's rubric, refuses to quote prices, and hands this console a structured lead.
+A front-desk and designer console for **Aangan Studio**, an interior design studio in Pune. The studio gets about 200 inbound calls a month, and a third of them arrive outside 10am–7pm. **Vaani**, a voice AI agent, now answers every call 24/7. It qualifies the caller against the founder's rubric, refuses to quote prices, takes their email, **books a 15-minute discovery call in Cal.com**, and hands this console a structured lead.
 
 **Live:** https://aangan-call-console-kappa.vercel.app
+
+![Components map](docs/components-map.png)
 
 ## What it does
 
@@ -11,13 +13,13 @@ A front-desk and designer console for **Aangan Studio**, an interior design stud
 - **Lead dossier:** property and scope, carpet area, budget (only if the caller offered one), location, timeline, an AI summary, and "already captured, don't re-ask" notes for the designer.
 - **Nikhil's 5 criteria:** real project, service area, timeline, budget, decision-maker. Each shows pass, fail or unclear, with a reason.
 - **"The Cut" pricing guardrail:** detected from the transcript itself. It shows when the agent held policy and turns red if any figure was quoted.
-- **4 automation outputs:** Operational Dashboard ✅, HubSpot CRM ✅ (contact + deal, stage, pipeline value, notes), Designer Email ⏳, Calendar Hold ⏳.
+- **4 automation outputs:** Operational Dashboard ✅, HubSpot CRM ✅ (contact with email + deal, stage, pipeline value, notes), Calendar Hold ✅ (booked by Vaani in Cal.com during the call), Designer Email ⏳.
 - **Designer assignment** across the 14-person team.
 
 ## Architecture
 
 ```
-Caller ──► Vaani agent (app.vaanivoice.ai)
+Caller ──► Vaani agent (app.vaanivoice.ai) ──► Cal.com (books the 15-min discovery call, invite by email)
               │  signed webhook: call_postprocessing (transcript, summary, entities, dispositions)
               ▼
         Next.js on Vercel ── /api/vaani/webhook (HMAC-SHA256 verified)
@@ -42,6 +44,8 @@ Caller ──► Vaani agent (app.vaanivoice.ai)
 | `lib/seed.ts` | 20 anonymised Sept 2026 enquiries, scored on the rubric. Hidden unless `SHOW_SEED_CALLS=true`. |
 | `supabase/schema.sql` | Database table |
 | `scripts/` | Create/update the Vaani agent, send a signed test webhook, re-import a call from Vaani |
+
+**Cal.com** is connected inside Vaani (Settings → Integrations → Cal.com, with the event type for the discovery call). The agent asks every new caller for an email, reads it back, and for qualified callers checks availability, books a slot and confirms it before the call ends.
 
 The agent's knowledge comes from the studio's own documents:
 - `services.md`: what the studio does and where.
@@ -79,6 +83,7 @@ node scripts/update-vaani-analysis.mjs               # push post-call extraction
 
 ## Not built yet
 
-- **Designer Email** and **Calendar Hold** (outputs 3 and 4) show as *Not connected*.
+- **Designer Email** (output 3) shows as *Not connected*.
+- **Calendar Hold** status comes from Vaani's post-call extraction (`booking_status`, `booking_time`) — i.e. what the booking tool confirmed on the call — not from Cal.com's API.
 - **Phone number:** the agent is tested from Vaani's in-browser test calls. A real number needs Vaani's Set Up Telephony.
 - **Designer roster:** 4 real names (Pooja Kulkarni, Amit Shinde, Tanvi Joshi, Aryan); the other 10 are placeholders.

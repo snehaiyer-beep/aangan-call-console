@@ -52,6 +52,9 @@ await send({
       decision_maker: "Owner",
       lead_source: "Instagram",
       known_context: "Warm minimal | Kids' study corner",
+      caller_email: "test.caller@example.com",
+      booking_status: "booked",
+      booking_time: "2026-10-11T18:00:00+05:30",
     },
     dispositions: {
       qualification: "Qualified",

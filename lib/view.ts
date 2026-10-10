@@ -54,7 +54,17 @@ function emailOutput(call: CallLead): AutomationOutput {
   }
   const designer = designerById(call.assignedDesignerId);
   if (!designer) return { key: "email", status: "pending", detail: "Assign a designer to route the briefing dossier" };
-  return { key: "email", status: "not-connected", detail: `Briefing for ${designer.name} is ready — email sending not set up yet` };
+  return { key: "email", status: "not-connected", detail: `Briefing for ${designer.name} is ready — designer email not set up yet` };
+}
+
+/** "2026-10-11T18:00:00+05:30" → "Sat 11 Oct · 6:00 PM IST"; falls back to the raw text. */
+function bookingLabel(at: string | undefined): string | undefined {
+  if (!at) return undefined;
+  const t = Date.parse(at);
+  if (!Number.isFinite(t)) return at;
+  const d = new Date(t);
+  const day = new Intl.DateTimeFormat("en-IN", { timeZone: "Asia/Kolkata", weekday: "short", day: "numeric", month: "short" }).format(d);
+  return `${day} · ${formatTime(d.toISOString())} IST`;
 }
 
 function calendarOutput(call: CallLead): AutomationOutput {
@@ -64,7 +74,29 @@ function calendarOutput(call: CallLead): AutomationOutput {
   if (call.qualification !== "Qualified") {
     return { key: "calendar", status: "skipped", detail: "No discovery call needed" };
   }
-  return { key: "calendar", status: "not-connected", detail: "15-min discovery hold — calendar not connected yet" };
+  const b = call.booking;
+  if (b?.status === "booked") {
+    return {
+      key: "calendar",
+      status: "delivered",
+      detail: `Booked on Cal.com by Vaani · ${bookingLabel(b.at) ?? "time confirmed on the call"}`,
+      meta: [
+        { label: "Meeting", value: "15-min discovery call" },
+        { label: "Invite sent to", value: call.email ?? "email not captured" },
+      ],
+    };
+  }
+  if (call.handledBy !== "Vaani") {
+    return { key: "calendar", status: "pending", detail: "Book a 15-min discovery call — taken by the front desk before Cal.com" };
+  }
+  return {
+    key: "calendar",
+    status: "pending",
+    detail:
+      b?.status === "not booked"
+        ? "Offered on the call but not booked — email the caller two slots"
+        : "No slot booked on the call — book a 15-min discovery call",
+  };
 }
 
 export function toView(call: CallLead, integrations: IntegrationStatus): CallView {

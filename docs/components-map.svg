@@ -1,0 +1,234 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9C6B43"/></marker></defs>
+<rect width="1600" height="1200" fill="#F7F4EF"/>
+<rect x="40" y="34" width="34" height="34" rx="9" fill="#2A241E"/>
+<path d="M49 62 V54 a8 8 0 0 1 16 0 V62" fill="none" stroke="#E0B872" stroke-width="2.4"/>
+<text x="88" y="58" font-family="Georgia, serif" font-size="30" font-weight="400" fill="#211C17" text-anchor="start">Aangan Call Console — Components Map</text>
+<text x="88" y="84" font-family="Segoe UI, Arial, sans-serif" font-size="14.5" font-weight="400" fill="#7D7266" text-anchor="start">How a call travels from the Vaani voice agent to Cal.com, the studio's console, Supabase and HubSpot</text>
+<line x1="1220" y1="52" x2="1262" y2="52" stroke="#9C6B43" stroke-width="2" marker-end="url(#ah)"/>
+<text x="1272" y="57" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#7D7266" text-anchor="start">data flow</text>
+<rect x="1360" y="42" width="34" height="20" rx="5" fill="#FFFFFF" stroke="#E3DACD"/>
+<text x="1402" y="57" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#7D7266" text-anchor="start">live</text>
+<rect x="1446" y="42" width="34" height="20" rx="5" fill="none" stroke="#7D7266" stroke-dasharray="5 4"/>
+<text x="1488" y="57" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#7D7266" text-anchor="start">not connected</text>
+<text x="40" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#7D7266" text-anchor="start" letter-spacing="1.4">PEOPLE</text>
+<rect x="40" y="170" width="190" height="80" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="54" y="206.5" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#211C17" text-anchor="start">Caller</text>
+<text x="54" y="224.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">phone or browser test call</text>
+<rect x="40" y="740" width="190" height="90" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="54" y="773" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#211C17" text-anchor="start">Front desk &amp; designers</text>
+<text x="54" y="791" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">open the console</text>
+<text x="54" y="809" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">in any browser</text>
+<rect x="280" y="120" width="300" height="525" rx="16" fill="#F1EADF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="300" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#9C6B43" text-anchor="start" letter-spacing="1.6">VAANI CLOUD</text>
+<text x="300" y="169" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">app.vaanivoice.ai</text>
+<rect x="300" y="175" width="260" height="70" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="314" y="198" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#211C17" text-anchor="start">Aangan Studio Front Desk</text>
+<text x="314" y="216" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">prompt · FAQs · pricing rule</text>
+<text x="314" y="234" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">asks name + email · books calls</text>
+<rect x="300" y="257" width="260" height="48" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="314" y="277.5" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">Hears — Deepgram nova-3</text>
+<text x="314" y="295.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">+ 38 Pune &amp; interiors keywords</text>
+<rect x="300" y="315" width="260" height="48" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="314" y="344" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">Thinks — Gemini 3.5 Flash</text>
+<rect x="300" y="373" width="260" height="48" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="314" y="402" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">Speaks — Cartesia voice</text>
+<rect x="300" y="433" width="260" height="70" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="314" y="456" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#211C17" text-anchor="start">Post-call analysis</text>
+<text x="314" y="474" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">24 fields incl. email + booking</text>
+<text x="314" y="492" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">qualification · pricing check</text>
+<rect x="300" y="545" width="260" height="70" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="314" y="576.5" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#211C17" text-anchor="start">Vaani API</text>
+<text x="314" y="594.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">recordings · call details</text>
+<rect x="640" y="120" width="520" height="740" rx="16" fill="#ECE7DF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="660" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#9C6B43" text-anchor="start" letter-spacing="1.6">VERCEL · NEXT.JS 16</text>
+<text x="660" y="169" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">aangan-call-console-kappa.vercel.app</text>
+<rect x="660" y="175" width="480" height="48" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="674" y="195.5" font-family="Consolas, monospace" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">proxy.ts</text>
+<text x="674" y="213.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">login switch · public while CONSOLE_PUBLIC=true</text>
+<text x="660" y="250" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#7D7266" text-anchor="start" letter-spacing="1.4">API ROUTES</text>
+<rect x="660" y="262" width="234" height="62" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="674" y="289.5" font-family="Consolas, monospace" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">/api/vaani/webhook</text>
+<text x="674" y="307.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">verifies HMAC signature</text>
+<rect x="906" y="262" width="234" height="62" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="920" y="289.5" font-family="Consolas, monospace" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">/api/calls</text>
+<text x="920" y="307.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">calls + 4 output statuses</text>
+<rect x="660" y="334" width="234" height="62" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="674" y="361.5" font-family="Consolas, monospace" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">/api/recording/[id]</text>
+<text x="674" y="379.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">streams audio; key stays server-side</text>
+<rect x="906" y="334" width="234" height="62" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="920" y="361.5" font-family="Consolas, monospace" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">/api/calls/[id]/assign</text>
+<text x="920" y="379.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">designer assignment</text>
+<rect x="660" y="406" width="480" height="52" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="674" y="428.5" font-family="Consolas, monospace" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">/api/hubspot/sync</text>
+<text x="674" y="446.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">push one lead or backfill all</text>
+<text x="660" y="488" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#7D7266" text-anchor="start" letter-spacing="1.4">LIB</text>
+<rect x="660" y="500" width="152" height="62" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="674" y="527.5" font-family="Consolas, monospace" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">vaani.ts</text>
+<text x="674" y="545.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">normalises report</text>
+<rect x="824" y="500" width="152" height="62" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="838" y="527.5" font-family="Consolas, monospace" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">policy.ts</text>
+<text x="838" y="545.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">after-hours · The Cut</text>
+<rect x="988" y="500" width="152" height="62" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="1002" y="527.5" font-family="Consolas, monospace" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">view.ts</text>
+<text x="1002" y="545.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">builds 4 outputs</text>
+<rect x="660" y="572" width="234" height="62" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="674" y="599.5" font-family="Consolas, monospace" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">seed · designers · types</text>
+<text x="674" y="617.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">14 designers · data shapes</text>
+<rect x="906" y="572" width="234" height="62" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="920" y="599.5" font-family="Consolas, monospace" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">hubspot.ts</text>
+<text x="920" y="617.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">contact + deal upsert</text>
+<rect x="906" y="644" width="234" height="62" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="920" y="671.5" font-family="Consolas, monospace" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">store.ts</text>
+<text x="920" y="689.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">Supabase, memory fallback</text>
+<text x="660" y="730" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#7D7266" text-anchor="start" letter-spacing="1.4">UI</text>
+<rect x="660" y="742" width="480" height="100" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="674" y="780" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#211C17" text-anchor="start">app/page.tsx — console UI</text>
+<text x="674" y="798" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">call queue · recording + synced transcript · lead dossier</text>
+<text x="674" y="816" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">5 criteria · The Cut · 4 outputs · designer assignment</text>
+<text x="1220" y="525" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#7D7266" text-anchor="start" letter-spacing="1.4">EXTERNAL SERVICES</text>
+<rect x="1220" y="540" width="340" height="80" rx="10" fill="#FBF8F3" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="1234" y="568" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#211C17" text-anchor="start">HubSpot CRM</text>
+<text x="1234" y="586" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">contact + deal · Lead Captured / Nurtured / Lost</text>
+<text x="1234" y="604" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">summary + 5-criteria notes</text>
+<rect x="1220" y="650" width="340" height="80" rx="10" fill="#FBF8F3" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="1234" y="678" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#211C17" text-anchor="start">Supabase</text>
+<text x="1234" y="696" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">public.calls · Mumbai (ap-south-1)</text>
+<text x="1234" y="714" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">call history for every server</text>
+<rect x="1220" y="760" width="340" height="56" rx="10" fill="none" stroke="#7D7266" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="1234" y="784.5" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#7D7266" text-anchor="start">Designer email</text>
+<text x="1234" y="802.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">briefing dossier · not connected yet</text>
+<text x="40" y="418" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#7D7266" text-anchor="start" letter-spacing="1.4">SCHEDULING</text>
+<rect x="40" y="430" width="190" height="96" rx="10" fill="#FBF8F3" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="54" y="457.5" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#211C17" text-anchor="start">Cal.com</text>
+<text x="54" y="475.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">15-min discovery call</text>
+<text x="54" y="493.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">invite to caller email</text>
+<text x="54" y="511.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">= Calendar Hold output</text>
+<path d="M230 210 H298" fill="none" stroke="#9C6B43" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="237" y="185" width="44.4" height="20" rx="10" fill="#F7F4EF" stroke="#E3DACD"/>
+<text x="259.2" y="199" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#9C6B43" text-anchor="middle">call</text>
+<path d="M560 468 H600 V293 H658" fill="none" stroke="#9C6B43" stroke-width="2" marker-end="url(#ah)"/>
+<text x="592" y="400" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#9C6B43" transform="rotate(-90 592 400)" text-anchor="middle">signed webhook</text>
+<path d="M660 365 H620 V580 H562" fill="none" stroke="#9C6B43" stroke-width="2" marker-end="url(#ah)"/>
+<text x="632" y="480" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#9C6B43" transform="rotate(-90 632 480)" text-anchor="middle">fetch recording</text>
+<path d="M1140 603 H1180 V580 H1218" fill="none" stroke="#9C6B43" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M1140 675 H1190 V690 H1218" fill="none" stroke="#9C6B43" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M230 785 H658" fill="none" stroke="#9C6B43" stroke-width="2" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<path d="M300 339 H262 V478 H232" fill="none" stroke="#9C6B43" stroke-width="2" marker-end="url(#ah)"/>
+<text x="254" y="410" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#9C6B43" transform="rotate(-90 254 410)" text-anchor="middle">books slot</text>
+<rect x="330" y="760" width="222.6" height="20" rx="10" fill="#F7F4EF" stroke="#E3DACD"/>
+<text x="441.3" y="774" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#9C6B43" text-anchor="middle">views calls · assigns designers</text>
+<rect x="1220" y="120" width="340" height="380" rx="16" fill="#FFFFFF" stroke="#E3DACD"/>
+<text x="1240" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#9C6B43" text-anchor="start" letter-spacing="1.6">A CALL'S JOURNEY</text>
+<circle cx="1252" cy="182" r="11" fill="#2A241E"/>
+<text x="1252" y="186.5" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#F3E9DA" text-anchor="middle">1</text>
+<text x="1272" y="180" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#211C17" text-anchor="start">Caller rings the studio;</text>
+<text x="1272" y="196" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#7D7266" text-anchor="start">Vaani answers, day or night.</text>
+<circle cx="1252" cy="217.5" r="11" fill="#2A241E"/>
+<text x="1252" y="222" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#F3E9DA" text-anchor="middle">2</text>
+<text x="1272" y="215.5" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#211C17" text-anchor="start">Qualifies on Nikhil's 5 criteria; takes</text>
+<text x="1272" y="231.5" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#7D7266" text-anchor="start">name + email, never quotes a price.</text>
+<circle cx="1252" cy="253" r="11" fill="#2A241E"/>
+<text x="1252" y="257.5" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#F3E9DA" text-anchor="middle">3</text>
+<text x="1272" y="251" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#211C17" text-anchor="start">Books a 15-min discovery call</text>
+<text x="1272" y="267" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#7D7266" text-anchor="start">in Cal.com; invite goes by email.</text>
+<circle cx="1252" cy="288.5" r="11" fill="#2A241E"/>
+<text x="1252" y="293" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#F3E9DA" text-anchor="middle">4</text>
+<text x="1272" y="286.5" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#211C17" text-anchor="start">After hang-up, Vaani extracts</text>
+<text x="1272" y="302.5" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#7D7266" text-anchor="start">the lead and signs a webhook.</text>
+<circle cx="1252" cy="324" r="11" fill="#2A241E"/>
+<text x="1252" y="328.5" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#F3E9DA" text-anchor="middle">5</text>
+<text x="1272" y="322" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#211C17" text-anchor="start">Signature verified; report</text>
+<text x="1272" y="338" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#7D7266" text-anchor="start">normalised by vaani.ts.</text>
+<circle cx="1252" cy="359.5" r="11" fill="#2A241E"/>
+<text x="1252" y="364" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#F3E9DA" text-anchor="middle">6</text>
+<text x="1272" y="357.5" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#211C17" text-anchor="start">Call saved to Supabase</text>
+<text x="1272" y="373.5" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#7D7266" text-anchor="start">by store.ts.</text>
+<circle cx="1252" cy="395" r="11" fill="#2A241E"/>
+<text x="1252" y="399.5" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#F3E9DA" text-anchor="middle">7</text>
+<text x="1272" y="393" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#211C17" text-anchor="start">Qualified / Nurture / Out of Scope</text>
+<text x="1272" y="409" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#7D7266" text-anchor="start">pushed to HubSpot automatically.</text>
+<circle cx="1252" cy="430.5" r="11" fill="#2A241E"/>
+<text x="1252" y="435" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#F3E9DA" text-anchor="middle">8</text>
+<text x="1272" y="428.5" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#211C17" text-anchor="start">Console shows dossier, transcript,</text>
+<text x="1272" y="444.5" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#7D7266" text-anchor="start">The Cut and the 4 outputs.</text>
+<circle cx="1252" cy="466" r="11" fill="#2A241E"/>
+<text x="1252" y="470.5" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#F3E9DA" text-anchor="middle">9</text>
+<text x="1272" y="464" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#211C17" text-anchor="start">Front desk assigns</text>
+<text x="1272" y="480" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#7D7266" text-anchor="start">one of 14 designers.</text>
+<rect x="40" y="900" width="1520" height="252" rx="16" fill="#FFFFFF" stroke="#E3DACD"/>
+<text x="64" y="934" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#9C6B43" text-anchor="start" letter-spacing="1.6">CONSOLE UI COMPONENTS</text>
+<text x="300" y="934" font-family="Consolas, monospace" font-size="13" font-weight="400" fill="#7D7266" text-anchor="start">app/page.tsx  →  CallConsolePage</text>
+<line x1="64" y1="966" x2="1436.857142857143" y2="966" stroke="#E3DACD" stroke-width="2"/>
+<line x1="163.14285714285714" y1="966" x2="163.14285714285714" y2="984" stroke="#E3DACD" stroke-width="2"/>
+<rect x="64" y="984" width="198.28571428571428" height="146" rx="10" fill="#FBF8F3" stroke="#E3DACD"/>
+<text x="76" y="1010" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">TopBar</text>
+
+<text x="76" y="1034" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">Vaani + HubSpot status</text>
+
+<text x="76" y="1070" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">Push N to HubSpot</text>
+<line x1="375.42857142857144" y1="966" x2="375.42857142857144" y2="984" stroke="#E3DACD" stroke-width="2"/>
+<rect x="276.2857142857143" y="984" width="198.28571428571428" height="146" rx="10" fill="#FBF8F3" stroke="#E3DACD"/>
+<text x="288.2857142857143" y="1010" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">Sidebar</text>
+
+<text x="288.2857142857143" y="1034" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">search · All / Qualified</text>
+<text x="288.2857142857143" y="1049" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">/ After-Hours</text>
+
+<text x="288.2857142857143" y="1070" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">CallListItem</text>
+
+<text x="288.2857142857143" y="1106" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">QualificationBadge ·</text>
+<text x="288.2857142857143" y="1121" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">AfterHoursTag</text>
+<line x1="587.7142857142857" y1="966" x2="587.7142857142857" y2="984" stroke="#E3DACD" stroke-width="2"/>
+<rect x="488.57142857142856" y="984" width="198.28571428571428" height="146" rx="10" fill="#FBF8F3" stroke="#E3DACD"/>
+<text x="500.57142857142856" y="1010" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">AudioPlayer</text>
+
+<text x="500.57142857142856" y="1034" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">waveform scrubber · 1× /</text>
+<text x="500.57142857142856" y="1049" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">1.5× / 2×</text>
+
+<text x="500.57142857142856" y="1070" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">The Cut marker</text>
+
+<text x="500.57142857142856" y="1106" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">MissedCallCard (no</text>
+<text x="500.57142857142856" y="1121" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">recording)</text>
+<line x1="800" y1="966" x2="800" y2="984" stroke="#E3DACD" stroke-width="2"/>
+<rect x="700.8571428571429" y="984" width="198.28571428571428" height="146" rx="10" fill="#FBF8F3" stroke="#E3DACD"/>
+<text x="712.8571428571429" y="1010" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">DossierPanel</text>
+
+<text x="712.8571428571429" y="1034" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">CutBanner /</text>
+<text x="712.8571428571429" y="1049" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">EscalationBanner</text>
+
+<text x="712.8571428571429" y="1070" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">Context Summary ·</text>
+<text x="712.8571428571429" y="1085" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">don't-re-ask chips</text>
+
+<text x="712.8571428571429" y="1106" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">EntityCard × 5 ·</text>
+<text x="712.8571428571429" y="1121" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">CriteriaCard</text>
+<line x1="1012.2857142857142" y1="966" x2="1012.2857142857142" y2="984" stroke="#E3DACD" stroke-width="2"/>
+<rect x="913.1428571428571" y="984" width="198.28571428571428" height="146" rx="10" fill="#FBF8F3" stroke="#E3DACD"/>
+<text x="925.1428571428571" y="1010" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">TranscriptPanel</text>
+
+<text x="925.1428571428571" y="1034" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">chat bubbles synced to</text>
+<text x="925.1428571428571" y="1049" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">playback</text>
+
+<text x="925.1428571428571" y="1070" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">click a line to jump</text>
+
+<text x="925.1428571428571" y="1106" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">The Cut + extracted-field</text>
+<text x="925.1428571428571" y="1121" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">tags</text>
+<line x1="1224.5714285714284" y1="966" x2="1224.5714285714284" y2="984" stroke="#E3DACD" stroke-width="2"/>
+<rect x="1125.4285714285713" y="984" width="198.28571428571428" height="146" rx="10" fill="#FBF8F3" stroke="#E3DACD"/>
+<text x="1137.4285714285713" y="1010" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">OutputsTracker</text>
+
+<text x="1137.4285714285713" y="1034" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">Dashboard · HubSpot</text>
+
+<text x="1137.4285714285713" y="1070" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">Calendar Hold (Cal.com) ·</text>
+<text x="1137.4285714285713" y="1085" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">Designer Email</text>
+
+<text x="1137.4285714285713" y="1106" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">Push / Re-sync to HubSpot</text>
+<line x1="1436.857142857143" y1="966" x2="1436.857142857143" y2="984" stroke="#E3DACD" stroke-width="2"/>
+<rect x="1337.7142857142858" y="984" width="198.28571428571428" height="146" rx="10" fill="#FBF8F3" stroke="#E3DACD"/>
+<text x="1349.7142857142858" y="1010" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">DesignerSelect · Toast</text>
+
+<text x="1349.7142857142858" y="1034" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">search 14 designers</text>
+
+<text x="1349.7142857142858" y="1070" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">assignment confirmations</text>
+<text x="40" y="1182" font-family="Consolas, monospace" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">github.com/snehaiyer-beep/aangan-call-console</text>
+<text x="1560" y="1182" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="end">Aangan Studio · Pune · Vaani voice agent</text>
+</svg>

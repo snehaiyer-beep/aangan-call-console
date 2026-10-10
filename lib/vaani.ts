@@ -215,6 +215,11 @@ export function normalize(e: VaaniEvent): CallLead | null {
   const bMax = num(pick(ent, "budget_max_inr")) ?? bMin;
   const budgetInr: [number, number] | undefined = bMin && bMax ? [bMin, bMax] : undefined;
   const callback = pick(ent, "callback_needed");
+  const emailRaw = pick(ent, "caller_email")?.toLowerCase().replace(/\s+/g, "");
+  const email = emailRaw && /^[^@\s]+@[^@\s]+\.[a-z]{2,}$/.test(emailRaw) ? emailRaw : null;
+  const bookingRaw = pick(ent, "booking_status")?.toLowerCase();
+  const bookingStatus = bookingRaw === "booked" || bookingRaw === "not booked" ? bookingRaw : "not offered";
+  const bookingAt = bookingStatus === "booked" ? pick(ent, "booking_time") : undefined;
   const pricingQuoted = /^(yes|true)$/i.test(pick(both, "pricing_quoted") ?? "");
 
   const flags = [
@@ -227,6 +232,8 @@ export function normalize(e: VaaniEvent): CallLead | null {
     reference: d.call_id,
     callerName: pick(ent, "caller_name") ?? null,
     phone,
+    email,
+    booking: { status: bookingStatus, at: bookingAt },
     receivedAt,
     durationSec,
     handledBy: "Vaani",

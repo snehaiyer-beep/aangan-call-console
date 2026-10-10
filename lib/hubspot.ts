@@ -96,15 +96,18 @@ async function findOne(object: "contacts" | "deals", filters: { propertyName: st
 }
 
 async function upsertContact(call: CallLead): Promise<string | undefined> {
-  if (!call.callerName && !call.phone) return undefined; // nothing to identify them by
+  if (!call.callerName && !call.phone && !call.email) return undefined; // nothing to identify them by
   const [firstname, ...rest] = (call.callerName ?? "").split(" ");
   const lastname = rest.join(" ");
   const props: Record<string, string> = {};
   if (firstname) props.firstname = firstname;
   if (lastname) props.lastname = lastname;
   if (call.phone) props.phone = call.phone;
+  if (call.email) props.email = call.email;
 
-  const existing = call.phone
+  const existing = call.email
+    ? await findOne("contacts", [{ propertyName: "email", operator: "EQ", value: call.email }])
+    : call.phone
     ? await findOne("contacts", [{ propertyName: "phone", operator: "EQ", value: call.phone }])
     : await findOne("contacts", [
         { propertyName: "firstname", operator: "EQ", value: firstname },
@@ -139,6 +142,9 @@ function dealDescription(call: CallLead, indicative: boolean): string {
     "",
     `Handled by: ${call.handledBy}${isAfterHours(call.receivedAt) ? " · after hours" : ""} · ${call.receivedAt}`,
     `Source: ${call.source ?? "Not stated"} · Designer: ${designer}`,
+    call.booking?.status === "booked"
+      ? `Discovery call booked on Cal.com: ${call.booking.at ?? "time confirmed on the call"}${call.email ? ` (invite to ${call.email})` : ""}`
+      : "",
     indicative ? "Amount is an internal indicative estimate (carpet area × lowest band) — not a client quote." : "",
   ]
     .filter((l, i, a) => l !== "" || a[i - 1] !== "")
