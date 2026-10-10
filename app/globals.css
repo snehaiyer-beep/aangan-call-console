@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #f7f4ef;
+  color: #211c17;
+}
+
+.font-display {
+  font-optical-sizing: auto;
+  letter-spacing: -0.01em;
+}
+
+.scroll-soft {
+  scrollbar-width: thin;
+  scrollbar-color: #ddd3c5 transparent;
+}
+.scroll-soft::-webkit-scrollbar {
+  width: 6px;
+}
+.scroll-soft::-webkit-scrollbar-thumb {
+  background: #ddd3c5;
+  border-radius: 99px;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}

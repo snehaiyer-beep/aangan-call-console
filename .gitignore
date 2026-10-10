@@ -1,0 +1,18 @@
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# Secrets — never commit
+.env
+.env.local
+.env.*.local
+
+# Local tools (cloudflared)
+.tools/
+
+.vercel
+
+# Local editor/agent config
+.claude/

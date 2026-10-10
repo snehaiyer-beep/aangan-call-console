@@ -1,0 +1,8 @@
+# Never upload secrets or local tools — env vars are set in Vercel's project settings.
+.env
+.env.local
+.env.*.local
+.tools/
+.next/
+node_modules/
+.claude/
