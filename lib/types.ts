@@ -65,6 +65,19 @@ export interface HubSpotSync {
   error?: string;
 }
 
+export interface CallBooking {
+  status: "booked" | "not booked" | "not offered";
+  /** Confirmed start (ISO). */
+  at?: string;
+  /** Caller's preferred start as captured on the call (ISO, IST). */
+  requested?: string;
+  /** Cal.com booking uid. */
+  uid?: string;
+  source?: "console" | "vaani";
+  note?: string;
+  error?: string;
+}
+
 export interface CallLead {
   id: string;
   reference: string;
@@ -73,8 +86,8 @@ export interface CallLead {
   phone: string | null;
   /** Confirmed on the call; used for the Cal.com invite and the HubSpot contact. */
   email?: string | null;
-  /** Discovery-call booking made by the agent through Cal.com during the call. */
-  booking?: { status: "booked" | "not booked" | "not offered"; at?: string };
+  /** 15-min discovery call in Cal.com (booked by the console after the call, or by the agent). */
+  booking?: CallBooking;
   receivedAt: string;
   durationSec: number;
   handledBy: Handler;

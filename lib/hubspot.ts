@@ -146,7 +146,7 @@ function dealDescription(call: CallLead, indicative: boolean): string {
     `Handled by: ${call.handledBy}${isAfterHours(call.receivedAt) ? " · after hours" : ""} · ${call.receivedAt}`,
     `Source: ${call.source ?? "Not stated"} · Designer: ${designer}`,
     call.booking?.status === "booked"
-      ? `Discovery call booked on Cal.com: ${call.booking.at ?? "time confirmed on the call"}${call.email ? ` (invite to ${call.email})` : ""}`
+      ? `Discovery call booked on Cal.com: ${call.booking.at ? new Date(call.booking.at).toLocaleString("en-IN", { timeZone: "Asia/Kolkata", weekday: "short", day: "numeric", month: "short", hour: "numeric", minute: "2-digit" }) + " IST" : "time confirmed on the call"}${call.email ? ` (invite to ${call.email})` : ""}`
       : "",
     indicative ? "Amount is an internal indicative estimate (carpet area × lowest band) — not a client quote." : "",
   ]

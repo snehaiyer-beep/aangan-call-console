@@ -227,6 +227,8 @@ export function normalize(e: VaaniEvent): CallLead | null {
   const bookingRaw = pick(ent, "booking_status")?.toLowerCase();
   const bookingStatus = bookingRaw === "booked" || bookingRaw === "not booked" ? bookingRaw : "not offered";
   const bookingAt = bookingStatus === "booked" ? pick(ent, "booking_time") : undefined;
+  const preferred = pick(ent, "preferred_slot");
+  const requested = preferred && Number.isFinite(Date.parse(preferred)) ? preferred : undefined;
   const pricingQuoted = /^(yes|true)$/i.test(pick(both, "pricing_quoted") ?? "");
 
   const flags = [
@@ -240,7 +242,7 @@ export function normalize(e: VaaniEvent): CallLead | null {
     callerName: pick(ent, "caller_name") ?? null,
     phone,
     email,
-    booking: { status: bookingStatus, at: bookingAt },
+    booking: { status: bookingStatus, at: bookingAt, requested, source: bookingAt ? "vaani" : undefined },
     receivedAt,
     durationSec,
     handledBy: "Vaani",

@@ -4,7 +4,7 @@
 <rect x="40" y="34" width="34" height="34" rx="9" fill="#2A241E"/>
 <path d="M49 62 V54 a8 8 0 0 1 16 0 V62" fill="none" stroke="#E0B872" stroke-width="2.4"/>
 <text x="88" y="58" font-family="Georgia, serif" font-size="30" font-weight="400" fill="#211C17" text-anchor="start">Aangan Call Console — Components Map</text>
-<text x="88" y="84" font-family="Segoe UI, Arial, sans-serif" font-size="14.5" font-weight="400" fill="#7D7266" text-anchor="start">How a call travels from the Vaani voice agent to Cal.com, the studio's console, Supabase and HubSpot</text>
+<text x="88" y="84" font-family="Segoe UI, Arial, sans-serif" font-size="14.5" font-weight="400" fill="#7D7266" text-anchor="start">How a call travels from the Vaani voice agent to the studio's console, Supabase, HubSpot and Cal.com</text>
 <line x1="1220" y1="52" x2="1262" y2="52" stroke="#9C6B43" stroke-width="2" marker-end="url(#ah)"/>
 <text x="1272" y="57" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#7D7266" text-anchor="start">data flow</text>
 <rect x="1360" y="42" width="34" height="20" rx="5" fill="#FFFFFF" stroke="#E3DACD"/>
@@ -25,7 +25,7 @@
 <rect x="300" y="175" width="260" height="70" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
 <text x="314" y="198" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#211C17" text-anchor="start">Aangan Studio Front Desk</text>
 <text x="314" y="216" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">prompt · FAQs · pricing rule</text>
-<text x="314" y="234" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">asks name + email · books calls</text>
+<text x="314" y="234" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">asks email + carpet area · agrees slot</text>
 <rect x="300" y="257" width="260" height="48" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
 <text x="314" y="277.5" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">Hears — Deepgram nova-3</text>
 <text x="314" y="295.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">+ 38 Pune &amp; interiors keywords</text>
@@ -35,7 +35,7 @@
 <text x="314" y="402" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">Speaks — Cartesia voice</text>
 <rect x="300" y="433" width="260" height="70" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
 <text x="314" y="456" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#211C17" text-anchor="start">Post-call analysis</text>
-<text x="314" y="474" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">24 fields incl. email + booking</text>
+<text x="314" y="474" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">25 fields incl. email + preferred slot</text>
 <text x="314" y="492" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">qualification · pricing check</text>
 <rect x="300" y="545" width="260" height="70" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
 <text x="314" y="576.5" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#211C17" text-anchor="start">Vaani API</text>
@@ -95,15 +95,16 @@
 <text x="1234" y="678" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#211C17" text-anchor="start">Supabase</text>
 <text x="1234" y="696" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">public.calls · Mumbai (ap-south-1)</text>
 <text x="1234" y="714" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">call history for every server</text>
-<rect x="1220" y="760" width="340" height="56" rx="10" fill="none" stroke="#7D7266" stroke-width="1.5" stroke-dasharray="6 5"/>
-<text x="1234" y="784.5" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#7D7266" text-anchor="start">Designer email</text>
-<text x="1234" y="802.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">briefing dossier · not connected yet</text>
-<text x="40" y="418" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#7D7266" text-anchor="start" letter-spacing="1.4">SCHEDULING</text>
-<rect x="40" y="430" width="190" height="96" rx="10" fill="#FBF8F3" stroke="#E3DACD" stroke-width="1.2"/>
-<text x="54" y="457.5" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#211C17" text-anchor="start">Cal.com</text>
-<text x="54" y="475.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">15-min discovery call</text>
-<text x="54" y="493.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">invite to caller email</text>
-<text x="54" y="511.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">= Calendar Hold output</text>
+<rect x="1220" y="760" width="340" height="70" rx="10" fill="#FBF8F3" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="1234" y="783" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#211C17" text-anchor="start">Cal.com</text>
+<text x="1234" y="801" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">books the 15-min discovery call</text>
+<text x="1234" y="819" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">nearest free slot · invite by email</text>
+<rect x="1220" y="846" width="340" height="44" rx="10" fill="none" stroke="#7D7266" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="1234" y="864.5" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#7D7266" text-anchor="start">Designer email</text>
+<text x="1234" y="882.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">briefing dossier · not connected yet</text>
+<rect x="660" y="644" width="234" height="62" rx="10" fill="#FFFFFF" stroke="#E3DACD" stroke-width="1.2"/>
+<text x="674" y="671.5" font-family="Consolas, monospace" font-size="14" font-weight="600" fill="#211C17" text-anchor="start">calcom.ts</text>
+<text x="674" y="689.5" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">books slot after the call</text>
 <path d="M230 210 H298" fill="none" stroke="#9C6B43" stroke-width="2" marker-end="url(#ah)"/>
 <rect x="237" y="185" width="44.4" height="20" rx="10" fill="#F7F4EF" stroke="#E3DACD"/>
 <text x="259.2" y="199" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#9C6B43" text-anchor="middle">call</text>
@@ -114,8 +115,9 @@
 <path d="M1140 603 H1180 V580 H1218" fill="none" stroke="#9C6B43" stroke-width="2" marker-end="url(#ah)"/>
 <path d="M1140 675 H1190 V690 H1218" fill="none" stroke="#9C6B43" stroke-width="2" marker-end="url(#ah)"/>
 <path d="M230 785 H658" fill="none" stroke="#9C6B43" stroke-width="2" marker-end="url(#ah)" marker-start="url(#ah)"/>
-<path d="M300 339 H262 V478 H232" fill="none" stroke="#9C6B43" stroke-width="2" marker-end="url(#ah)"/>
-<text x="254" y="410" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#9C6B43" transform="rotate(-90 254 410)" text-anchor="middle">books slot</text>
+<path d="M777 706 V724 H1200 V795 H1218" fill="none" stroke="#9C6B43" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="960" y="711" width="84" height="20" rx="10" fill="#F7F4EF" stroke="#E3DACD"/>
+<text x="1002" y="725" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#9C6B43" text-anchor="middle">books slot</text>
 <rect x="330" y="760" width="222.6" height="20" rx="10" fill="#F7F4EF" stroke="#E3DACD"/>
 <text x="441.3" y="774" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#9C6B43" text-anchor="middle">views calls · assigns designers</text>
 <rect x="1220" y="120" width="340" height="380" rx="16" fill="#FFFFFF" stroke="#E3DACD"/>
@@ -130,8 +132,8 @@
 <text x="1272" y="231.5" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#7D7266" text-anchor="start">name + email, never quotes a price.</text>
 <circle cx="1252" cy="253" r="11" fill="#2A241E"/>
 <text x="1252" y="257.5" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#F3E9DA" text-anchor="middle">3</text>
-<text x="1272" y="251" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#211C17" text-anchor="start">Books a 15-min discovery call</text>
-<text x="1272" y="267" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#7D7266" text-anchor="start">in Cal.com; invite goes by email.</text>
+<text x="1272" y="251" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#211C17" text-anchor="start">Agrees a day and time; console</text>
+<text x="1272" y="267" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#7D7266" text-anchor="start">books it in Cal.com after the call.</text>
 <circle cx="1252" cy="288.5" r="11" fill="#2A241E"/>
 <text x="1252" y="293" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#F3E9DA" text-anchor="middle">4</text>
 <text x="1272" y="286.5" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#211C17" text-anchor="start">After hang-up, Vaani extracts</text>
@@ -218,8 +220,8 @@
 
 <text x="1137.4285714285713" y="1034" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">Dashboard · HubSpot</text>
 
-<text x="1137.4285714285713" y="1070" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">Calendar Hold (Cal.com) ·</text>
-<text x="1137.4285714285713" y="1085" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">Designer Email</text>
+<text x="1137.4285714285713" y="1070" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">Calendar Hold (Cal.com</text>
+<text x="1137.4285714285713" y="1085" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">booking) · Designer Email</text>
 
 <text x="1137.4285714285713" y="1106" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7D7266" text-anchor="start">Push / Re-sync to HubSpot</text>
 <line x1="1436.857142857143" y1="966" x2="1436.857142857143" y2="984" stroke="#E3DACD" stroke-width="2"/>

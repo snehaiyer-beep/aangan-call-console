@@ -79,23 +79,28 @@ function calendarOutput(call: CallLead): AutomationOutput {
     return {
       key: "calendar",
       status: "delivered",
-      detail: `Booked on Cal.com by Vaani · ${bookingLabel(b.at) ?? "time confirmed on the call"}`,
+      detail: `Booked on Cal.com · ${bookingLabel(b.at) ?? "time confirmed on the call"}`,
+      at: b.note,
       meta: [
         { label: "Meeting", value: "15-min discovery call" },
         { label: "Invite sent to", value: call.email ?? "email not captured" },
+        ...(b.requested ? [{ label: "Caller asked for", value: bookingLabel(b.requested) ?? b.requested }] : []),
+        { label: "Booked by", value: b.source === "vaani" ? "Vaani, on the call" : "Console, after the call" },
       ],
     };
   }
   if (call.handledBy !== "Vaani") {
     return { key: "calendar", status: "pending", detail: "Book a 15-min discovery call — taken by the front desk before Cal.com" };
   }
+  if (b?.error) {
+    return { key: "calendar", status: "failed", detail: `Cal.com booking failed: ${b.error}` };
+  }
   return {
     key: "calendar",
     status: "pending",
-    detail:
-      b?.status === "not booked"
-        ? "Offered on the call but not booked — email the caller two slots"
-        : "No slot booked on the call — book a 15-min discovery call",
+    detail: call.email
+      ? "No slot booked — book a 15-min discovery call"
+      : "No email captured on the call, so no invite could be sent — call back to book",
   };
 }
 

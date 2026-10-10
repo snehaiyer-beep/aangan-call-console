@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { hubspotConfigured, pushToHubSpot, SYNCABLE } from "@/lib/hubspot";
-import { recordHubSpot, upsertCall } from "@/lib/store";
+import { bookDiscoveryCall, calcomConfigured } from "@/lib/calcom";
+import { getCall, recordHubSpot, upsertCall } from "@/lib/store";
 import { normalize, rememberStart, verifySignature, type VaaniEvent } from "@/lib/vaani";
 
 /** Field names and types only (never values), for logs. */
@@ -56,10 +57,21 @@ export async function POST(req: Request) {
         }
         return NextResponse.json({ ok: false, saved });
       }
-      await upsertCall(call);
-      // Live leads go straight to the CRM — no one has to remember to push them.
-      // Test calls (call_id "test-…", see scripts/send-test-webhook.mjs) stay out of HubSpot.
+      // Test calls (call_id "test-…", see scripts/send-test-webhook.mjs) stay out of Cal.com and HubSpot.
       const isTest = call.reference.startsWith("test-");
+
+      // Keep an existing booking if Vaani re-sends the same call, so it is never booked twice.
+      const previous = await getCall(call.id);
+      if (previous?.booking?.uid) call.booking = previous.booking;
+
+      // Book the 15-min discovery call in Cal.com for qualified callers who gave an email.
+      if (!isTest && call.booking?.status !== "booked" && calcomConfigured()) {
+        const booking = await bookDiscoveryCall(call);
+        if (booking) call.booking = booking;
+      }
+      await upsertCall(call);
+
+      // Live leads go straight to the CRM — no one has to remember to push them.
       if (!isTest && hubspotConfigured() && SYNCABLE.includes(call.qualification)) {
         await recordHubSpot(call.id, await pushToHubSpot(call));
       }
