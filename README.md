@@ -80,6 +80,8 @@ All of these are server-only. Never prefix one with `NEXT_PUBLIC_`, and never co
 ```bash
 node scripts/send-test-webhook.mjs [baseUrl]         # signed fake call (kept out of HubSpot and Cal.com)
 node scripts/run-trial-call.mjs <email> [ISO time]   # full end-to-end trial: real Cal.com booking + HubSpot
+node scripts/log-call.mjs <details.json>              # log a call from plain details (books Cal.com, pushes HubSpot)
+node scripts/voice-call.mjs <callId>                 # add an Indian-English voice recording to a logged call (edge-tts)
 node scripts/import-vaani-call.mjs <call_id> [url]   # pull a real call from Vaani if a webhook was missed
 node scripts/update-vaani-persona.mjs                # push prompt / keyword changes to the agent
 node scripts/update-vaani-analysis.mjs               # push post-call extraction changes
