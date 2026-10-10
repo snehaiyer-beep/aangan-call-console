@@ -216,7 +216,14 @@ export function normalize(e: VaaniEvent): CallLead | null {
   const budgetInr: [number, number] | undefined = bMin && bMax ? [bMin, bMax] : undefined;
   const callback = pick(ent, "callback_needed");
   const emailRaw = pick(ent, "caller_email")?.toLowerCase().replace(/\s+/g, "");
-  const email = emailRaw && /^[^@\s]+@[^@\s]+\.[a-z]{2,}$/.test(emailRaw) ? emailRaw : null;
+  // Fallback when the extraction misses it: the last address the agent read back on the call.
+  const readBack = [...parseTranscript(d.transcript, 60, d.call_id)]
+    .reverse()
+    .filter((t) => t.speaker === "agent")
+    .map((t) => t.text.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/i)?.[0])
+    .find(Boolean);
+  const emailCandidate = emailRaw || readBack?.toLowerCase();
+  const email = emailCandidate && /^[^@\s]+@[^@\s]+\.[a-z]{2,}$/.test(emailCandidate) ? emailCandidate : null;
   const bookingRaw = pick(ent, "booking_status")?.toLowerCase();
   const bookingStatus = bookingRaw === "booked" || bookingRaw === "not booked" ? bookingRaw : "not offered";
   const bookingAt = bookingStatus === "booked" ? pick(ent, "booking_time") : undefined;
